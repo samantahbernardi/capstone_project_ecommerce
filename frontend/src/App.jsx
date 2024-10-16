@@ -23,7 +23,7 @@ const App = () => {
       <SearchBar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/catalogo' element={<Catalogue />} />
+        <Route path='/catalogo-prodotti' element={<Catalogue />} />
         <Route path='/about' element={<About />} />
         <Route path='/product/:productId' element={<ProductItem />} />
         <Route path='/cart' element={<Cart />} />
