@@ -6,7 +6,7 @@ import axios from 'axios'
 
 export const ShopContext = createContext();
 
-const ShopContextProvider = (props) => {
+const ShopContextProvider = async (props) => {
 
     const currency = '€';
     const delivery_fee = 5.99;
@@ -19,33 +19,27 @@ const ShopContextProvider = (props) => {
     const navigate = useNavigate();
 
 
-    const addToCart = async (itemId, size) => {
-
-        if (!size) {
-            toast.error('Select Product Size');
-            return;
-        }
 
         let cartData = structuredClone(cartItems);
 
         if (cartData[itemId]) {
-            if (cartData[itemId][size]) {
-                cartData[itemId][size] += 1;
+            if (cartData[itemId]) {
+                cartData[itemId] += 1;
             }
             else {
-                cartData[itemId][size] = 1;
+                cartData[itemId] = 1;
             }
         }
         else {
             cartData[itemId] = {};
-            cartData[itemId][size] = 1;
+            cartData[itemId] = 1;
         }
         setCartItems(cartData);
 
         if (token) {
             try {
 
-                await axios.post(backendUrl + '/api/cart/add', { itemId, size }, { headers: { token } })
+                await axios.post(backendUrl + '/api/cart/add', { itemId }, { headers: { token } })
 
             } catch (error) {
                 console.log(error)
@@ -71,11 +65,11 @@ const ShopContextProvider = (props) => {
         return totalCount;
     }
 
-    const updateQuantity = async (itemId, size, quantity) => {
+    const updateQuantity = async (itemId, quantity) => {
 
         let cartData = structuredClone(cartItems);
 
-        cartData[itemId][size] = quantity;
+        cartData[itemId] = quantity;
 
         setCartItems(cartData)
 
@@ -166,7 +160,5 @@ const ShopContextProvider = (props) => {
             {props.children}
         </ShopContext.Provider>
     )
-
-}
 
 export default ShopContextProvider;
