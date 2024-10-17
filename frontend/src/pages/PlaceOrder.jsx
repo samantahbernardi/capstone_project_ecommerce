@@ -52,8 +52,8 @@ const PlaceOrder = () => {
                 }
             }
         }
-        const rzp = new window.Razorpay(options)
-        rzp.open()
+        // const rzp = new window.Razorpay(options)
+        // rzp.open()
     }
 
     const onSubmitHandler = async (event) => {
