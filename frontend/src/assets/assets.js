@@ -7,7 +7,6 @@ import dropdown_icon from './dropdown_icon.png'
 import exchange_icon from './exchange_icon.png'
 import profile_icon from './profile_icon.png'
 import quality_icon from './quality_icon.png'
-import search_icon from './search_icon.png'
 import support_img from './support_img.png'
 import menu_icon from './menu_icon.png'
 import about_img from './about_img.png'
@@ -27,7 +26,6 @@ export const assets = {
     profile_icon,
     quality_icon,
     gift,
-    search_icon,
     bin_icon,
     support_img,
     menu_icon,
