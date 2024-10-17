@@ -13,12 +13,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Verify from './pages/Verify'
 import ProductPage from './pages/ProductPage'
+import SearchBar from './components/SearchBar'
 
 const App = () => {
   return (
     <div className='px-5 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
       <ToastContainer />
       <Navbar />
+      <SearchBar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/catalogo-prodotti' element={<Catalogue />} />
